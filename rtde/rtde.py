@@ -20,7 +20,7 @@ class RTDE:
     def get_tool_pose(self) -> List[float]:
         """Get the pose of the Tool Center Point (TCP) in Cartesian space.
 
-        Return [x, y, z, rx, ry, rz]
+        Return [x, y, z, rx, ry, rz] position + rotation vector
         """
         return self.rtde_r.getActualTCPPose()
 
@@ -32,7 +32,10 @@ class RTDE:
         return self.rtde_r.getActualTCPSpeed()
 
     def set_tool_pose(self, tcp: List[float]):
-        """Set the Tool Center Point (TCP) in Cartesian space."""
+        """Set the Tool Center Point (TCP) in Cartesian space.
+        
+        The pose is defined as [x, y, z, rx, ry, rz] position + rotation vector
+        """
         self.rtde_c.setTcp(tcp)
 
     def move_joint(
@@ -55,7 +58,7 @@ class RTDE:
         """Move the robot to follow a given path/trajectory,
         with each waypoint defined as
         [q1, q2, q3, q4, q5, q6, speed, acceleration, blend]
-        The last 3 values are optional and can be omitted.
+        (angles + others)
         """
         self.rtde_c.moveJ(path, asynchronous)
 
@@ -87,8 +90,8 @@ class RTDE:
     ):
         """Move the robot to follow a given tool path/trajectory,
         with each waypoint defined as
-        [q1, q2, q3, q4, q5, q6, speed, acceleration, blend]
-        The last 3 values are optional and can be omitted.
+        [x, y, z, rx, ry, rz, speed, acceleration, blend]
+        (position + rotation vector + others)
         """
         self.rtde_c.moveL(path, asynchronous)
 
@@ -153,6 +156,7 @@ class RTDE:
         at a low frequency It is preferred to call this function
         with a new setpoint (q) in each time step
         """
+        # Tool pose [x, y, z, rx, ry, rz] position + rotation vector
         self.rtde_c.servoL(
             pose, speed, acceleration, time, lookahead_time, gain
         )
