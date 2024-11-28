@@ -3,7 +3,13 @@ This project provides a wrapper class in Python to communicate with UR robot usi
 
 ## Usage
 
-The wrapper class `RTDE` is provided to communicate and control UR robots with **RTDE** interface. The complete **RTDE API** is provided in the [official documentation](https://sdurobotics.gitlab.io/ur_rtde/api/api.html#rtde-control-interface-api). This class includes the most commonly used ones:
+This project uses the UR **RTDE** interface provided by UR robot.
+
+```
+pip install ur-rtde
+```
+
+The wrapper class `RTDE` is provided to communicate and control UR robots with **RTDE** interface. The complete **RTDE** API is provided in the [official documentation](https://sdurobotics.gitlab.io/ur_rtde/api/api.html#rtde-control-interface-api). This class includes the most commonly used ones:
 
 ### Receive Interface
 - get_joint_values()
