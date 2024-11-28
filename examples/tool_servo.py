@@ -9,7 +9,7 @@ def test():
     # Test joint control functions
     # Set home first
     home_joint = np.array([1.57, -1.7, 2, -1.87, -1.57, 3.14])
-    home = np.array([0.2, -0.6, 0.4, 0, 3.14, 0])
+    home = np.array([0.2, -0.6, 0.4, 3.14, 0, 0])
 
     # Design the path
     num_points = 1000

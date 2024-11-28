@@ -7,11 +7,11 @@ def test():
     # Test joint control functions
     # Set home first
     home_joint = [1.57, -1.7, 2, -1.87, -1.57, 3.14]
-    home = [0.2, -0.6, 0.4, 0, 3.14, 0]
+    home = [0.2, -0.6, 0.4, 3.14, 0, 0]
 
-    target1 = [0.3, -0.5, 0.4, 0, 3.14, 0]
-    target2 = [0.2, -0.5, 0.4, 0, 3.14, 0]
-    target3 = [0.2, -0.6, 0.4, 0, 3.14, 0]
+    target1 = [0.3, -0.5, 0.4, 3.14, 0, 0]
+    target2 = [0.2, -0.5, 0.4, 3.14, 0, 0]
+    target3 = [0.2, -0.6, 0.4, 3.14, 0, 0]
     traj = [home, target1, target2, target3]
     traj = [traj[i] + [0.1, 1.0, 0.02] for i in range(len(traj))]
 
