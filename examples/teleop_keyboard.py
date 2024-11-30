@@ -5,11 +5,16 @@ from pynput import keyboard
 
 
 class Teleop:
-    """A simple teleoperation class for controlling the robot tool pose
+    """A simple teleoperation class for controlling the robot tool pose.
+    This class is needed mostly when the input devices have no "Home" position.
+    (e.g. VR controller). Or the input command is relative to the current pose,
+    instead of providing the absolute pose.
+    In these two cases, it will require the class to store relative "Home"
+    positions for both the input device and the robot tool.
 
     The logic in the code supports both position and rotation control.
     But the resume() and track() function are only implemented
-    for position control for demonstration.
+    for position control just for demonstration.
     """
 
     def __init__(self, rtde, rate=0.008):
