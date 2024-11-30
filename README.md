@@ -31,4 +31,4 @@ Tool Space Control
 - servo_tool()
 
 ## Examples
-Check out the scripts in **examples** folder for more details.
+This repository provides examples such as joint control, tool control, servoing and teleoperation. Check out the scripts in **examples** folder for more details.
